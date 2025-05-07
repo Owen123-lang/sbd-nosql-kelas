@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  
+
+  backend:
+    build: .
+    container_name: node-backend
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb+srv://raihanmustofa11656:SIPk2OqUgFWNT8Tu@cluster0.0wqixbc.mongodb.net/gacha?retryWrites=true&w=majority
+      FRONTEND_URL: http://localhost:5000
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
