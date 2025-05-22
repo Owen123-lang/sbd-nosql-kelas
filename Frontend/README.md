@@ -1,12 +1,102 @@
-# React + Vite
+# Aplikasi Web Gacha FGO (Fate/Grand Order)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi web gacha berbasis MERN stack (MongoDB, Express.js, React.js, Node.js) yang terinspirasi dari game Fate/Grand Order.
 
-Currently, two official plugins are available:
+## Deskripsi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikasi ini merupakan simulasi sistem gacha dengan tema Fate/Grand Order, dimana pengguna dapat melakukan:
+- Registrasi dan login akun
+- Melakukan gacha untuk mendapatkan karakter
+- Melihat karakter yang telah didapatkan
+- Menggunakan sistem pity untuk menjamin mendapatkan karakter rare
 
-## Expanding the ESLint configuration
+## Teknologi yang Digunakan
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- React.js
+- Tailwind CSS untuk styling
+- Context API untuk state management
+- Vite sebagai build tool
+
+### Backend
+- Node.js dengan Express.js
+- MongoDB sebagai database
+- Docker untuk containerization
+
+## Fitur Utama
+
+### 1. Sistem Autentikasi
+- Registrasi akun baru
+- Login dengan akun yang sudah terdaftar
+- Proteksi route untuk pengguna yang belum login
+
+### 2. Sistem Gacha
+- Simulasi gacha dengan berbagai tingkat kelangkaan karakter
+- Sistem pity yang menjamin karakter rare setelah sejumlah pull
+- Visualisasi animasi saat melakukan gacha
+
+### 3. Koleksi Karakter
+- Tampilan kartu karakter yang telah didapatkan
+- Informasi detail setiap karakter
+- History gacha yang telah dilakukan
+
+## Cara Menjalankan Aplikasi
+
+### Prasyarat
+- Node.js dan npm terinstall
+- Docker dan Docker Compose terinstall
+- MongoDB (jika ingin menjalankan tanpa Docker)
+
+### Langkah-langkah Menjalankan dengan Docker
+
+1. Clone repository ini
+2. Buka terminal dan masuk ke direktori project
+3. Jalankan perintah:
+```bash
+docker-compose up --build
+```
+4. Aplikasi dapat diakses di:
+   - Frontend: http://localhost:5173
+   - Backend: http://localhost:3000
+
+### Langkah-langkah Menjalankan Tanpa Docker
+
+1. Clone repository ini
+2. Buka terminal dan masuk ke direktori project
+
+3. Setup Backend:
+```bash
+cd Backend
+npm install
+npm run dev
+```
+
+4. Setup Frontend (buka terminal baru):
+```bash
+cd Frontend
+npm install
+npm run dev
+```
+
+5. Aplikasi dapat diakses di:
+   - Frontend: http://localhost:5173
+   - Backend: http://localhost:3000
+
+## Struktur Project
+
+### Frontend
+- `/src/pages`: Halaman-halaman utama aplikasi
+  - `Login.jsx`: Halaman login
+  - `Register.jsx`: Halaman registrasi
+  - `Gacha.jsx`: Halaman untuk melakukan gacha
+  - `Card.jsx`: Halaman untuk melihat koleksi karakter
+- `/src/context`: Context untuk state management
+- `/src/assets`: Aset gambar dan media lainnya
+
+### Backend
+- `/controllers`: Logic untuk handling request
+- `/models`: Schema database MongoDB
+- `index.js`: Entry point aplikasi backend
+
+
+
